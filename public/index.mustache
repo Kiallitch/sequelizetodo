@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Revisit Todo List with Sequelize</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+  </head>
+  <body>
+  <div id="wrapper">
+    <h1>To do or not to do, that be the question!</h1>
+    <form action="/" method="post">
+    <input type="text" name="item" placeholder="Add a todo..." autofocus="autofocus" required>
+    <input type="submit" value="Add todo" class="todoBtn">
+    </form>
+    <br>
+    <form action="/completed" method="post">
+      <ul>
+      {{#listBox}}
+      {{^complete}}
+        <li>
+          <input type="submit" name="incomplete" value="Mark complete" class="done" onclick="this.value='{{id}}'; this.form.submit();">
+          <span class="listitem"> {{item}}</span>
+        </li>
+      {{/complete}}
+      {{/listBox}}
+      </ul>
+    </form>
+    <h2 id="completed-tasks">Completed tasks</h2>
+    <form action="/delete" method="post">
+      <ul>
+      {{#listBox}}
+      {{#complete}}
+          <li>
+            <input type="submit" name="completed" value="Delete task" class="delBtn" onclick="this.value='{{id}}'; this.form.submit();">
+            <span class="listitem"> {{item}}</span>
+          </li>
+      {{/complete}}
+      {{/listBox}}
+      </ul>
+    </form>
+    <br>
+    <form action="/deletecompleted" method="post">
+      <input type="submit" name="deletecompleted" value="Delete all completed" class="delAll">
+    </form>
+  </div>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "hgunyon",
+    "password": null,
+    "database": "sequelizeDB",
+    "host": "localhost",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "hgunyon",
+    "password": null,
+    "database": "sequelizeDB",
+    "host": "localhost",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "hgunyon",
+    "password": null,
+    "database": "sequelizeDB",
+    "host": "localhost",
+    "dialect": "postgres"
+  }
+}
